@@ -1,0 +1,51 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String?
+  isAdmin   Boolean  @default(false)
+  orders    Order[]
+}
+
+model Order {
+  id          String   @id @default(uuid())
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String
+  location    String
+  latitude    Float?
+  longitude   Float?
+  package     Package
+  description String
+  date        String?  // Date of filming (ISO format)
+  time        String?  // Time of filming (HH:mm)
+  status      OrderStatus @default(PENDING)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+enum Package {
+  RAW
+  EDITED
+}
+
+enum OrderStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
