@@ -2,9 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: 'standalone',
-  experimental: {
-    serverComponentsExternalPackages: ['@prisma/client']
-  },
+  serverExternalPackages: ['@prisma/client'],
   env: {
     CUSTOM_KEY: process.env.CUSTOM_KEY,
   },

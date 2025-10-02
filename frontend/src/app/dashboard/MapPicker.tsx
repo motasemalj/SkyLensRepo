@@ -17,10 +17,11 @@ export default function MapPicker({ value, onChange }: {
   onChange: (coords: { lat: number, lng: number }) => void
 }) {
   const [position, setPosition] = useState(value || { lat: 25.2048, lng: 55.2708 }); // Default: Dubai
+  const [isClient, setIsClient] = useState(false);
 
-  // Dynamically import CSS to avoid SSR issues
+  // Ensure component only renders on client side
   useEffect(() => {
-    import("leaflet/dist/leaflet.css");
+    setIsClient(true);
   }, []);
 
   function LocationMarker() {
@@ -31,6 +32,14 @@ export default function MapPicker({ value, onChange }: {
       },
     });
     return position ? <Marker position={position} /> : null;
+  }
+
+  if (!isClient) {
+    return (
+      <div className="w-full h-64 rounded-lg overflow-hidden border border-neutral-700 mb-2 flex items-center justify-center bg-neutral-800">
+        <div className="text-neutral-400">Loading map...</div>
+      </div>
+    );
   }
 
   return (
