@@ -9,8 +9,18 @@ const adminRoutes = require('./routes/admin');
 
 const app = express();
 
-app.use(cors());
+// CORS configuration for Railway
+app.use(cors({
+  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  credentials: true
+}));
+
 app.use(bodyParser.json());
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'OK', timestamp: new Date().toISOString() });
+});
 
 app.use('/api/auth', authRoutes);
 app.use('/api/order', orderRoutes);
@@ -22,7 +32,9 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Something went wrong!' });
 });
 
-const PORT = 4001;
-app.listen(PORT, () => {
-  console.log(`SkyLens backend running on port ${PORT}`);
+const PORT = process.env.PORT || 4001;
+const HOST = process.env.HOST || '0.0.0.0';
+
+app.listen(PORT, HOST, () => {
+  console.log(`SkyLens backend running on ${HOST}:${PORT}`);
 });

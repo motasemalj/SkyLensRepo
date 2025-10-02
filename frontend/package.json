@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postbuild": "next export",
+    "railway:build": "npm run build",
+    "railway:start": "npm run start"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
