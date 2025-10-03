@@ -5,8 +5,7 @@ import { useRouter } from "next/navigation";
 import { Calendar, dateFnsLocalizer } from 'react-big-calendar';
 import { format, parse, startOfWeek, getDay } from 'date-fns';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4001";
+import { API_URL } from "../../config/env";
 
 interface Order {
   id: string;

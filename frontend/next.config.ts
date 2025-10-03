@@ -1,10 +1,16 @@
 import type { NextConfig } from "next";
 
+// Log environment variables at build time for debugging
+console.log('🔍 Next.js Build Config - Environment Variables:');
+console.log('   NEXT_PUBLIC_API_URL:', process.env.NEXT_PUBLIC_API_URL || 'NOT SET - using fallback');
+console.log('   NEXT_PUBLIC_IMAGE_BASE_URL:', process.env.NEXT_PUBLIC_IMAGE_BASE_URL || 'NOT SET - using fallback');
+
 const nextConfig: NextConfig = {
   output: 'standalone',
   serverExternalPackages: ['@prisma/client'],
+  
+  // Explicitly expose these environment variables to the client
   env: {
-    // Explicitly expose these environment variables to the client
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4001',
     NEXT_PUBLIC_IMAGE_BASE_URL: process.env.NEXT_PUBLIC_IMAGE_BASE_URL || 'https://res.cloudinary.com/dm2sd9t1n/image/upload',
   },

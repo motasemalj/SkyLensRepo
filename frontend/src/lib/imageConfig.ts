@@ -1,5 +1,7 @@
 // Image configuration for Cloudinary or local paths
-export const IMAGE_BASE_URL = process.env.NEXT_PUBLIC_IMAGE_BASE_URL || '';
+import { IMAGE_BASE_URL as ENV_IMAGE_BASE_URL } from '../config/env';
+
+export const IMAGE_BASE_URL = ENV_IMAGE_BASE_URL;
 
 export const getImageUrl = (path: string) => {
   if (IMAGE_BASE_URL) {

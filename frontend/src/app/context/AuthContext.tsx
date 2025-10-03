@@ -1,13 +1,6 @@
 "use client";
 import { createContext, useContext, useState, useEffect } from "react";
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4001";
-
-// Debug: Log API URL at startup (will show in browser console)
-if (typeof window !== 'undefined') {
-  console.log('🔧 AuthContext - API_URL:', API_URL);
-  console.log('🔧 NEXT_PUBLIC_API_URL env:', process.env.NEXT_PUBLIC_API_URL);
-}
+import { API_URL } from "../../config/env";
 
 interface User {
   id: string;
