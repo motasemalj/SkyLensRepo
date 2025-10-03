@@ -4,7 +4,9 @@ const nextConfig: NextConfig = {
   output: 'standalone',
   serverExternalPackages: ['@prisma/client'],
   env: {
-    CUSTOM_KEY: process.env.CUSTOM_KEY,
+    // Explicitly expose these environment variables to the client
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4001',
+    NEXT_PUBLIC_IMAGE_BASE_URL: process.env.NEXT_PUBLIC_IMAGE_BASE_URL || 'https://res.cloudinary.com/dm2sd9t1n/image/upload',
   },
   images: {
     unoptimized: true,

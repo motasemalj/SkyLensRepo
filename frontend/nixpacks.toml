@@ -7,11 +7,17 @@ cmds = [
 ]
 
 [phases.build]
-cmds = ["npm run build"]
+cmds = [
+  "echo '🔍 Build environment check:'",
+  "echo \"NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL\"",
+  "echo \"NEXT_PUBLIC_IMAGE_BASE_URL=$NEXT_PUBLIC_IMAGE_BASE_URL\"",
+  "npm run build"
+]
 
 [start]
 cmd = "npm start"
 
 [variables]
 NPM_CONFIG_PRODUCTION = "false"
+NODE_ENV = "production"
 
