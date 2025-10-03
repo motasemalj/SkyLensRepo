@@ -24,19 +24,28 @@ model User {
 }
 
 model Order {
-  id          String   @id @default(uuid())
-  user        User     @relation(fields: [userId], references: [id])
+  id          String      @id @default(uuid())
+  user        User        @relation(fields: [userId], references: [id])
   userId      String
+  service     ServiceType
   location    String
   latitude    Float?
   longitude   Float?
   package     Package
   description String
-  date        String?  // Date of filming (ISO format)
-  time        String?  // Time of filming (HH:mm)
+  estimate    Float?      // Estimated price
+  date        String?     // Date of filming (ISO format)
+  time        String?     // Time of filming (HH:mm)
   status      OrderStatus @default(PENDING)
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
+}
+
+enum ServiceType {
+  AERIAL_PHOTOGRAPHY
+  EDITED_VIDEO
+  MAPPING_3D
+  INDUSTRIAL_INSPECTION
 }
 
 enum Package {

@@ -1,0 +1,18 @@
+[phases.setup]
+nixPkgs = ["nodejs_20", "openssl"]
+
+[phases.install]
+cmds = [
+  "npm ci --omit=dev",
+  "npx prisma generate"
+]
+
+[phases.build]
+cmds = ["echo 'Build phase complete'"]
+
+[start]
+cmd = "npm start"
+
+[variables]
+NODE_ENV = "production"
+
