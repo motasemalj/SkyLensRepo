@@ -2,6 +2,9 @@
 FROM node:20-alpine AS deps
 WORKDIR /app
 
+# Ensure devDependencies are installed
+ENV NPM_CONFIG_PRODUCTION=false
+
 # Install dependencies for node-gyp
 RUN apk add --no-cache libc6-compat
 
@@ -9,7 +12,8 @@ RUN apk add --no-cache libc6-compat
 COPY package.json package-lock.json* ./
 
 # Install ALL dependencies (including devDependencies needed for build)
-RUN npm ci --legacy-peer-deps
+# Use npm install instead of npm ci to avoid production-only installs in some environments
+RUN npm install --legacy-peer-deps --include=dev
 
 # Stage 2: Builder
 FROM node:20-alpine AS builder
