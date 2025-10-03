@@ -18,9 +18,18 @@
   },
   "devDependencies": {
     "@types/leaflet": "^1.9.18",
-    "concurrently": "^8.2.2"
+    "cloudinary": "^2.7.0",
+    "concurrently": "^8.2.2",
+    "sharp": "^0.34.4"
   },
-  "keywords": ["drone", "filming", "aerial", "photography", "nextjs", "express"],
+  "keywords": [
+    "drone",
+    "filming",
+    "aerial",
+    "photography",
+    "nextjs",
+    "express"
+  ],
   "author": "SkyLens Team",
   "license": "MIT"
 }

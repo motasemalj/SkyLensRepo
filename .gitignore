@@ -103,3 +103,12 @@ Thumbs.db
 
 # Prisma
 prisma/migrations/
+
+# Cloudinary credentials (NEVER commit these!)
+.cloudinary_config
+.cloudinaryrc
+upload_images.js
+compress_and_upload.js
+
+# Compressed images directory (temporary)
+frontend/public_compressed/
