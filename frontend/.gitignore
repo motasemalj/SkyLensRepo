@@ -39,3 +39,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Large image files (downloaded during build)
+/public/*.jpg
+/public/*.jpeg
+/public/*.png
+/public/*.gif
+/public/about/*.jpg
+/public/optimized/*.jpg
+/public/services/*.jpg
+# Keep SVG icons
+!/public/*.svg
+!/public/next.svg
+!/public/vercel.svg

@@ -9,6 +9,8 @@ cmds = [
 
 [phases.build]
 cmds = [
+  "chmod +x download_images.sh",
+  "./download_images.sh",
   "cd frontend && npm run build"
 ]
 
