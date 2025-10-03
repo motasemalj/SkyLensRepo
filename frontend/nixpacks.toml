@@ -22,6 +22,5 @@ cmds = [
 cmd = "npm start"
 
 [variables]
-NPM_CONFIG_PRODUCTION = "false"
 NODE_ENV = "production"
 
