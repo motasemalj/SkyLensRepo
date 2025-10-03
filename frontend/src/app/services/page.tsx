@@ -1,30 +1,31 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { getImageUrl, IMAGES } from "@/lib/imageConfig";
 
 const services = [
   {
     title: "RAW Footage Delivery",
     description: "Receive unedited, high-resolution aerial footage straight from our drones. Perfect for clients who want full creative control.",
-    image: "/aerial-photography.jpg",
+    image: getImageUrl(IMAGES.aerialPhotography),
     features: ["4K Resolution", "Uncompressed Files", "Full Creative Control", "Quick Delivery"]
   },
   {
     title: "Fully Edited Video",
     description: "Get a professionally edited video with color grading, music, and smooth transitions. Ideal for marketing, real estate, and events.",
-    image: "/edited.gif",
+    image: getImageUrl(IMAGES.servicesEdited),
     features: ["Professional Editing", "Color Grading", "Background Music", "Motion Graphics"]
   },
   {
     title: "3D Mapping",
     description: "Create detailed 3D models and maps of your property or site. Perfect for construction, real estate, and urban planning.",
-    image: "/3d-mapping.gif",
+    image: getImageUrl(IMAGES.mapping3d),
     features: ["High-Resolution 3D Models", "Topographic Maps", "Volume Calculations", "Progress Tracking"]
   },
   {
     title: "Industrial Inspection",
     description: "Perform safe, efficient, and detailed inspections of industrial sites, infrastructure, and equipment using advanced drone technology.",
-    image: "/construction.jpg",
+    image: getImageUrl(IMAGES.construction),
     features: ["Thermal Imaging", "High-Resolution Photos", "Remote Access", "Detailed Reporting"]
   }
 ];

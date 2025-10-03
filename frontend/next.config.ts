@@ -8,7 +8,15 @@ const nextConfig: NextConfig = {
   },
   images: {
     unoptimized: true,
-    domains: ['localhost'],
+    domains: ['localhost', 'res.cloudinary.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        port: '',
+        pathname: '/dm2sd9t1n/**',
+      },
+    ],
   },
   async headers() {
     return [

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { getImageUrl, IMAGES } from "@/lib/imageConfig";
 
 export default function Home() {
   const [isClient, setIsClient] = useState(false);
@@ -16,7 +17,7 @@ export default function Home() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/hero-drone.jpg"
+          src={getImageUrl(IMAGES.hero)}
           alt="Drone Filming"
           fill
           priority
@@ -31,7 +32,7 @@ export default function Home() {
         {/* Logo Section */}
         <div className="mb-8 sm:mb-12 transform hover:scale-105 transition-transform duration-500">
           <Image
-            src="/skylens-logo.png"
+            src={getImageUrl(IMAGES.logo)}
             alt="SkyLens Logo"
             width={300}
             height={300}

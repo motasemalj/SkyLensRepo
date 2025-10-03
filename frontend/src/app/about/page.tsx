@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { getImageUrl, IMAGES } from "@/lib/imageConfig";
 
 export default function About() {
   return (
@@ -24,7 +25,7 @@ export default function About() {
             </div>
             <div className="relative aspect-[3/2] rounded-2xl overflow-hidden order-1 lg:order-2">
               <Image
-                src="/optimized/project6.jpg"
+                src={getImageUrl(IMAGES.optimizedProject6)}
                 alt="Aerial Photography"
                 fill
                 className="object-cover"
@@ -41,7 +42,7 @@ export default function About() {
             <div className="bg-neutral-800/50 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center gap-6 sm:gap-8">
               <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-cyan-500/20 flex-shrink-0">
                 <Image
-                  src="/abdelhadi.png"
+                  src={getImageUrl(IMAGES.abdelhadi)}
                   alt="Abdelhadi Zabin"
                   fill
                   className="object-cover"
