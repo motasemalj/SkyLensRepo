@@ -54,7 +54,7 @@ const itemVariants = {
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-black text-white pt-16 sm:pt-20 relative z-10">
+    <div className="min-h-screen bg-black text-white pt-16 sm:pt-20 relative z-10 pb-20 sm:pb-32">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-12 sm:py-16">
         <motion.h1 
           className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent px-4"

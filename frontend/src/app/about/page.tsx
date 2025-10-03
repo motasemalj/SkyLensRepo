@@ -4,7 +4,7 @@ import { getImageUrl, IMAGES } from "@/lib/imageConfig";
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-black text-white pt-16 sm:pt-20">
+    <div className="min-h-screen bg-black text-white pt-16 sm:pt-20 pb-20 sm:pb-32">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-12 sm:py-16">
         <h1 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center px-4">About SkyLens</h1>
         

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "./context/AuthContext";
 import NavBarWrapper from "./components/NavBarWrapper";
+import Footer from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,6 +23,9 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -31,10 +35,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`bg-black text-white min-h-screen ${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`bg-black text-white min-h-screen flex flex-col ${geistSans.variable} ${geistMono.variable}`}>
         <AuthProvider>
           <NavBarWrapper />
-          {children}
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
         </AuthProvider>
       </body>
     </html>

@@ -13,7 +13,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="relative w-full min-h-screen flex flex-col items-center justify-center bg-black text-white overflow-hidden pb-16 sm:pb-32">
+    <main className="relative w-full min-h-screen flex flex-col items-center justify-center bg-black text-white overflow-hidden pb-20 sm:pb-32">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
