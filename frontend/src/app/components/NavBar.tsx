@@ -19,6 +19,18 @@ export default function NavBar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   const handleLogout = () => {
     logout();
     router.push("/");
@@ -146,18 +158,18 @@ export default function NavBar() {
 
         {/* Mobile Menu Overlay */}
         {isMobileMenuOpen && (
-          <div className="md:hidden fixed inset-0 z-50">
+          <div className="md:hidden fixed inset-0 z-50 animate-fadeIn">
             {/* Backdrop */}
             <div 
-              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
               onClick={() => setIsMobileMenuOpen(false)}
             />
             
             {/* Menu Panel */}
-            <div className="absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-neutral-900 backdrop-blur-xl border-l border-cyan-500/20 shadow-2xl">
-              <div className="flex flex-col h-full">
+            <div className="absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-neutral-900/95 backdrop-blur-xl border-l border-cyan-500/30 shadow-2xl animate-slideInRight">
+              <div className="flex flex-col h-full bg-gradient-to-b from-neutral-900 to-neutral-950">
                 {/* Menu Header */}
-                <div className="flex items-center justify-between p-6 border-b border-neutral-700/50">
+                <div className="flex items-center justify-between p-6 border-b border-neutral-700/50 bg-neutral-900/80">
                   <h2 className="text-xl font-bold text-white">Menu</h2>
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
@@ -170,7 +182,7 @@ export default function NavBar() {
                 </div>
 
                 {/* Navigation Links */}
-                <div className="flex-1 px-6 py-6 space-y-2">
+                <div className="flex-1 px-6 py-6 space-y-2 overflow-y-auto">
                   <Link 
                     href="/" 
                     className="flex items-center px-4 py-3 text-white hover:bg-cyan-500/10 hover:text-cyan-400 rounded-xl transition-all duration-200 group"
@@ -217,7 +229,7 @@ export default function NavBar() {
                 </div>
 
                 {/* Auth Section */}
-                <div className="p-6 border-t border-neutral-700/50">
+                <div className="p-6 border-t border-neutral-700/50 bg-neutral-900/80">
                   {user ? (
                     <div className="space-y-3">
                       {!user.isAdmin && (
