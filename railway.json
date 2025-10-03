@@ -2,7 +2,11 @@
   "$schema": "https://railway.app/railway.schema.json",
   "build": {
     "builder": "DOCKERFILE",
-    "dockerfilePath": "Dockerfile"
+    "dockerfilePath": "Dockerfile",
+    "buildArgs": {
+      "NEXT_PUBLIC_API_URL": "$NEXT_PUBLIC_API_URL",
+      "NEXT_PUBLIC_IMAGE_BASE_URL": "$NEXT_PUBLIC_IMAGE_BASE_URL"
+    }
   },
   "deploy": {
     "healthcheckPath": "/",
