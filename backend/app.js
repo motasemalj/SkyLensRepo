@@ -10,8 +10,11 @@ const adminRoutes = require('./routes/admin');
 const app = express();
 
 // CORS configuration for Railway
+const allowedOrigin = process.env.FRONTEND_URL || 'http://localhost:3000';
+console.log('🔒 CORS configured for origin:', allowedOrigin);
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: allowedOrigin,
   credentials: true
 }));
 
