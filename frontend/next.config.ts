@@ -6,7 +6,7 @@ console.log('   NEXT_PUBLIC_API_URL:', process.env.NEXT_PUBLIC_API_URL || 'NOT S
 console.log('   NEXT_PUBLIC_IMAGE_BASE_URL:', process.env.NEXT_PUBLIC_IMAGE_BASE_URL || 'NOT SET - using fallback');
 
 const nextConfig: NextConfig = {
-  output: 'standalone',
+  // Note: Removed 'output: standalone' to use custom server.js
   serverExternalPackages: ['@prisma/client'],
   
   // Explicitly expose these environment variables to the client
