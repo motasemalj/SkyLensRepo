@@ -19,14 +19,23 @@ ARG NEXT_PUBLIC_API_URL
 ARG NEXT_PUBLIC_IMAGE_BASE_URL
 
 # Set them as environment variables for the build
-ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
-ENV NEXT_PUBLIC_IMAGE_BASE_URL=$NEXT_PUBLIC_IMAGE_BASE_URL
+ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+ENV NEXT_PUBLIC_IMAGE_BASE_URL=${NEXT_PUBLIC_IMAGE_BASE_URL}
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 
 COPY --from=deps /app/frontend/node_modules ./node_modules
 COPY frontend ./
+
+# Debug: Print env vars during build to verify they're set
+RUN echo "🔍 Build-time env check:" && \
+    echo "NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}" && \
+    echo "NEXT_PUBLIC_IMAGE_BASE_URL=${NEXT_PUBLIC_IMAGE_BASE_URL}"
+
 RUN npm run build
+
+# Debug: Verify what was embedded in the build
+RUN grep -r "localhost:4001" .next/ || echo "✅ No localhost:4001 found in build"
 
 # Stage 3: Runner
 FROM node:20-alpine AS runner
