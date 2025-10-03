@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "SkyLens - Drone Filming Service Platform",
   "scripts": {
-    "dev": "concurrently \"cd frontend && npm run dev\" \"cd frontend/backend && npm run dev\"",
+    "dev": "concurrently \"cd frontend && npm run dev\" \"cd backend && npm run dev\"",
     "build": "cd frontend && npm run build",
     "start": "cd frontend && npm run start",
     "install:all": "npm install && cd frontend && npm install && cd backend && npm install",
-    "db:generate": "cd frontend/backend && npx prisma generate",
-    "db:push": "cd frontend/backend && npx prisma db push",
-    "db:migrate": "cd frontend/backend && npx prisma migrate dev",
-    "db:studio": "cd frontend/backend && npx prisma studio"
+    "db:generate": "cd backend && npx prisma generate",
+    "db:push": "cd backend && npx prisma db push",
+    "db:migrate": "cd backend && npx prisma migrate dev",
+    "db:studio": "cd backend && npx prisma studio"
   },
   "dependencies": {
     "leaflet": "^1.9.4",

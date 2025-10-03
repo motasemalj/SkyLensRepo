@@ -36,14 +36,14 @@ A modern, full-stack web application for drone filming services built with Next.
 SkyLens/
 ├── frontend/
 │   ├── src/app/           # Next.js app directory
-│   ├── backend/           # Express.js backend
-│   │   ├── controllers/   # Route controllers
-│   │   ├── middleware/    # Auth middleware
-│   │   ├── routes/        # API routes
-│   │   ├── prisma/        # Database schema & migrations
-│   │   └── utils/         # Utility functions
 │   ├── public/            # Static assets
 │   └── components/        # React components
+├── backend/               # Express.js backend
+│   ├── controllers/       # Route controllers
+│   ├── middleware/        # Auth middleware
+│   ├── routes/            # API routes
+│   ├── prisma/            # Database schema & migrations
+│   └── utils/             # Utility functions
 ├── scripts/               # Utility scripts
 └── README.md
 ```
@@ -82,7 +82,7 @@ SkyLens/
    
    Create `.env` files in the appropriate directories:
    
-   **frontend/backend/.env:**
+   **backend/.env:**
    ```env
    DATABASE_URL="postgresql://username:password@localhost:5432/skylens_db"
    JWT_SECRET="your-super-secret-jwt-key-here"
@@ -101,7 +101,7 @@ SkyLens/
 
 4. **Set up the database**
    ```bash
-   cd frontend/backend
+   cd backend
    npx prisma generate
    npx prisma db push
    ```
@@ -110,7 +110,7 @@ SkyLens/
    
    **Terminal 1 - Backend:**
    ```bash
-   cd frontend/backend
+   cd backend
    npm run dev
    ```
    
