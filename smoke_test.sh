@@ -6,10 +6,16 @@
 echo "🧪 SkyLens Railway Deployment Smoke Test"
 echo "========================================"
 echo ""
+echo "This script tests all critical endpoints to ensure the deployment is healthy."
+echo ""
 
 # Configuration
 BACKEND_URL="https://meticulous-creativity-production.up.railway.app"
 FRONTEND_URL="https://skylensrepo-production.up.railway.app"
+
+echo "Backend URL: $BACKEND_URL"
+echo "Frontend URL: $FRONTEND_URL"
+echo ""
 
 # Colors
 RED='\033[0;31m'
